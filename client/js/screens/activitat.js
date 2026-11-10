@@ -7,9 +7,10 @@ import { parlar, callar } from "../services/veu.js";
 import { estat } from "../estat.js";
 import comptar from "../activities/comptar.js";
 import triar from "../activities/triar.js";
+import classificar from "../activities/classificar.js";
 
 // Minijocs disponibles, segons el "tipus" de l'activitat a mons.json
-const MINIJOCS = { comptar, triar };
+const MINIJOCS = { comptar, triar, classificar };
 
 const LLAVORS_A_LA_PRIMERA = 2;
 const LLAVORS_DESPRES_DERROR = 1;

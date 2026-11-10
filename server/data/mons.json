@@ -45,7 +45,101 @@
           "id": "classificar-fruites",
           "nom": "Classificar fruites",
           "tipus": "classificar",
-          "pictograma": 4653
+          "pictograma": 4653,
+          "contingut": {
+            "cistella": 3012,
+            "colors": [
+              "vermell",
+              "groc",
+              "verd"
+            ],
+            "fruites": [
+              {
+                "nom": "poma",
+                "article": "la",
+                "color": "vermell",
+                "pictograma": 2462
+              },
+              {
+                "nom": "tomàquet",
+                "article": "el",
+                "color": "vermell",
+                "pictograma": 2594
+              },
+              {
+                "nom": "maduixa",
+                "article": "la",
+                "color": "vermell",
+                "pictograma": 2400
+              },
+              {
+                "nom": "cirera",
+                "article": "la",
+                "color": "vermell",
+                "pictograma": 8303
+              },
+              {
+                "nom": "pebrot",
+                "article": "el",
+                "color": "vermell",
+                "pictograma": 2839
+              },
+              {
+                "nom": "plàtan",
+                "article": "el",
+                "color": "groc",
+                "pictograma": 2530
+              },
+              {
+                "nom": "llimona",
+                "article": "la",
+                "color": "groc",
+                "pictograma": 3022
+              },
+              {
+                "nom": "poma",
+                "article": "la",
+                "color": "groc",
+                "pictograma": 13645
+              },
+              {
+                "nom": "pinya",
+                "article": "la",
+                "color": "groc",
+                "pictograma": 2525
+              },
+              {
+                "nom": "pebrot",
+                "article": "el",
+                "color": "groc",
+                "pictograma": 39388
+              },
+              {
+                "nom": "pera",
+                "article": "la",
+                "color": "verd",
+                "pictograma": 2561
+              },
+              {
+                "nom": "poma",
+                "article": "la",
+                "color": "verd",
+                "pictograma": 13644
+              },
+              {
+                "nom": "raïm",
+                "article": "el",
+                "color": "verd",
+                "pictograma": 3247
+              },
+              {
+                "nom": "pebrot",
+                "article": "el",
+                "color": "verd",
+                "pictograma": 2838
+              }
+            ]
+          }
         },
         {
           "id": "que-creix",
