@@ -6,9 +6,10 @@ import { crearCargolet, celebrar } from "../cargolet.js";
 import { parlar, callar } from "../services/veu.js";
 import { estat } from "../estat.js";
 import comptar from "../activities/comptar.js";
+import triar from "../activities/triar.js";
 
 // Minijocs disponibles, segons el "tipus" de l'activitat a mons.json
-const MINIJOCS = { comptar };
+const MINIJOCS = { comptar, triar };
 
 const LLAVORS_A_LA_PRIMERA = 2;
 const LLAVORS_DESPRES_DERROR = 1;
@@ -59,7 +60,7 @@ export default {
       return pantalla;
     }
 
-    const preguntes = minijoc.generarPreguntes(classe);
+    const preguntes = minijoc.generarPreguntes(classe, activitat);
     let actual = 0;
     let errorsPregunta = 0;
     let errorsTotals = 0;

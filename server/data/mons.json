@@ -51,7 +51,90 @@
           "id": "que-creix",
           "nom": "Què creix a la tardor?",
           "tipus": "triar",
-          "pictograma": 5063
+          "pictograma": 5063,
+          "contingut": {
+            "estacio": "tardor",
+            "aliments": [
+              {
+                "nom": "carbassa",
+                "article": "la",
+                "estacio": "tardor",
+                "pictograma": 6951
+              },
+              {
+                "nom": "castanya",
+                "article": "la",
+                "estacio": "tardor",
+                "pictograma": 3183
+              },
+              {
+                "nom": "bolets",
+                "article": "els",
+                "estacio": "tardor",
+                "pictograma": 39541
+              },
+              {
+                "nom": "raïm",
+                "article": "el",
+                "estacio": "tardor",
+                "pictograma": 3247
+              },
+              {
+                "nom": "magrana",
+                "article": "la",
+                "estacio": "tardor",
+                "pictograma": 8594
+              },
+              {
+                "nom": "moniato",
+                "article": "el",
+                "estacio": "tardor",
+                "pictograma": 36354
+              },
+              {
+                "nom": "caqui",
+                "article": "el",
+                "estacio": "tardor",
+                "pictograma": 13074
+              },
+              {
+                "nom": "síndria",
+                "article": "la",
+                "estacio": "estiu",
+                "pictograma": 2557
+              },
+              {
+                "nom": "meló",
+                "article": "el",
+                "estacio": "estiu",
+                "pictograma": 36153
+              },
+              {
+                "nom": "préssec",
+                "article": "el",
+                "estacio": "estiu",
+                "pictograma": 2468
+              },
+              {
+                "nom": "maduixa",
+                "article": "la",
+                "estacio": "primavera",
+                "pictograma": 2400
+              },
+              {
+                "nom": "cirera",
+                "article": "la",
+                "estacio": "primavera",
+                "pictograma": 8303
+              },
+              {
+                "nom": "taronja",
+                "article": "la",
+                "estacio": "hivern",
+                "pictograma": 2483
+              }
+            ]
+          }
         },
         {
           "id": "regar-recollir",

@@ -11,7 +11,7 @@ export default {
   tipus: "comptar",
 
   // Crea les preguntes de la partida segons la classe
-  generarPreguntes(nivell, quantes = 5) {
+  generarPreguntes(nivell, activitat, quantes = 5) {
     const [min, max] = RANGS[nivell] ?? RANGS.I4;
     const preguntes = [];
     for (let i = 0; i < quantes; i++) {
