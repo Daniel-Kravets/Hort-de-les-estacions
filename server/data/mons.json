@@ -153,7 +153,7 @@
                 "nom": "carbassa",
                 "article": "la",
                 "estacio": "tardor",
-                "pictograma": 6951
+                "pictograma": 2679
               },
               {
                 "nom": "castanya",
@@ -234,7 +234,65 @@
           "id": "regar-recollir",
           "nom": "Regar i recollir",
           "tipus": "regar",
-          "pictograma": 2816
+          "pictograma": 2816,
+          "contingut": {
+            "eines": {
+              "regar": 2817,
+              "recollir": 3012
+            },
+            "plantes": [
+              {
+                "nom": "pastanaga",
+                "article": "la",
+                "pictograma": 2619
+              },
+              {
+                "nom": "enciam",
+                "article": "l'",
+                "pictograma": 2446
+              },
+              {
+                "nom": "col",
+                "article": "la",
+                "pictograma": 2708
+              },
+              {
+                "nom": "bròquil",
+                "article": "el",
+                "pictograma": 23853
+              },
+              {
+                "nom": "ceba",
+                "article": "la",
+                "pictograma": 2323
+              },
+              {
+                "nom": "patata",
+                "article": "la",
+                "pictograma": 2503
+              },
+              {
+                "nom": "albergínia",
+                "article": "l'",
+                "pictograma": 2660
+              },
+              {
+                "nom": "carbassa",
+                "article": "la",
+                "pictograma": 2679
+              },
+              {
+                "nom": "tomàquet",
+                "article": "el",
+                "pictograma": 2594
+              },
+              {
+                "nom": "pebrot",
+                "article": "el",
+                "pictograma": 2839
+              }
+            ]
+          }
         },
         {
           "id": "cicle-planta",

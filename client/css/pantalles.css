@@ -520,3 +520,76 @@
 .cistella--sobre  { transform: scale(1.08); }
 .cistella--encert { animation: salt 600ms var(--transicio); }
 .cistella.es-incorrecta { animation: no-no 450ms ease-in-out; }
+
+/* ---------- MINIJOC: REGAR I RECOLLIR ---------- */
+.regar { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+.regar__eines { display: flex; gap: 36px; }
+.regar__eines--crida { animation: salt 600ms var(--transicio); }
+
+.eina {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 26px 8px 10px;
+  border: none;
+  border-radius: var(--radi-organic);
+  background: var(--fons-paper);
+  box-shadow: 0 0 0 4px var(--linia), 0 8px 0 4px var(--fons-fosc);
+  font-size: var(--text-petit);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transicio), box-shadow var(--transicio);
+}
+.eina img { width: 76px; height: 76px; object-fit: contain; }
+.eina--triada {
+  background: var(--mostassa-clar);
+  box-shadow: 0 0 0 6px var(--mostassa), 0 10px 0 6px var(--mostassa-fosc);
+  transform: translateY(-4px) rotate(-2deg);
+}
+
+.regar__plantes { display: flex; gap: 52px; }
+.test {                              /* planta (pictograma) dins d'un test de fang */
+  position: relative;
+  width: 170px;
+  padding: 0 0 70px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform var(--transicio);
+}
+.test img { position: relative; width: 150px; height: 150px; margin: 0 auto; object-fit: contain; z-index: 1; }
+.test__olla {
+  position: absolute;
+  left: 50%; bottom: 0;
+  width: 150px; height: 90px;
+  transform: translateX(-50%);
+  background: #B9735A;
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 14% 100%);
+  border-radius: 0 0 18px 18px;
+}
+.test__olla::before {                 /* vora del test */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 22px;
+  background: #934F3A;
+}
+.test:hover { transform: translateY(-6px); }
+.test.es-incorrecta { animation: no-no 450ms ease-in-out; }
+
+/* Encert: gotes d'aigua o la verdura que salta a la cistella */
+.test--regat::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: -20px;
+  width: 120px; height: 60px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(ellipse 6px 10px at 20% 30%, #8FA5AE 98%, transparent),
+    radial-gradient(ellipse 6px 10px at 50% 10%, #8FA5AE 98%, transparent),
+    radial-gradient(ellipse 6px 10px at 80% 35%, #8FA5AE 98%, transparent);
+  animation: pluja 900ms ease-in 2;
+}
+@keyframes pluja { from { transform: translate(-50%, -20px); opacity: 1; } to { transform: translate(-50%, 70px); opacity: 0; } }
+.test--recollit img { animation: recollir 900ms ease-in forwards; }
+@keyframes recollir { 40% { transform: translateY(-40px) scale(1.1); } 100% { transform: translateY(-120px) scale(.3); opacity: 0; } }

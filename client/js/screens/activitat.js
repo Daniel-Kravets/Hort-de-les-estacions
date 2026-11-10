@@ -8,9 +8,10 @@ import { estat } from "../estat.js";
 import comptar from "../activities/comptar.js";
 import triar from "../activities/triar.js";
 import classificar from "../activities/classificar.js";
+import regar from "../activities/regar.js";
 
 // Minijocs disponibles, segons el "tipus" de l'activitat a mons.json
-const MINIJOCS = { comptar, triar, classificar };
+const MINIJOCS = { comptar, triar, classificar, regar };
 
 const LLAVORS_A_LA_PRIMERA = 2;
 const LLAVORS_DESPRES_DERROR = 1;
@@ -82,7 +83,7 @@ export default {
         pas.classList.toggle("actual", i === actual);
       });
       const pregunta = preguntes[actual];
-      minijoc.pintar(pregunta, zona, { respondre, parlar });
+      minijoc.pintar(pregunta, zona, { respondre, parlar, avisar: dir });
       dir(pregunta.enunciat);
     }
 
