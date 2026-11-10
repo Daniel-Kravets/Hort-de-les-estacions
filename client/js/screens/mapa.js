@@ -2,6 +2,7 @@
 import { html, capcalera, icones } from "../utils.js";
 import { obtenirMons } from "../services/api.js";
 import { crearCargolet } from "../cargolet.js";
+import { estat } from "../estat.js";
 
 // On cau cada parada sobre el camí (coordenades del dibuix, de 1000 x 460)
 const PARADES = {
@@ -30,9 +31,8 @@ const CAMI = `
 export default {
   id: "mapa",
 
-  crear(nav, dades) {
-    const { alumne } = dades;
-    const llavors = dades.llavors ?? 0;   // les llavors reals arribaran amb la partida
+  crear(nav) {
+    const { alumne, partida } = estat;
 
     const pantalla = html(`
       <section>
@@ -42,7 +42,7 @@ export default {
         </div>
       </section>
     `);
-    pantalla.prepend(capcalera(nav, "", { alumne, llavors }));
+    pantalla.prepend(capcalera(nav, "", { alumne, llavors: partida.llavors }));
 
     const mapa = pantalla.querySelector(".mapa");
 
@@ -62,7 +62,7 @@ export default {
 
         parada.addEventListener("click", () => {
           if (mon.disponible) {
-            nav.anar("hort", { ...dades, llavors, estacio: mon.id });
+            nav.anar("hort", { estacio: mon.id });
           } else {
             avisar(parada, "AVIAT!");
           }

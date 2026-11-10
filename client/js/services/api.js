@@ -15,3 +15,8 @@ export function obtenirGrup(idGrup) {
 export function obtenirMons() {
   return demanar("/api/mons");
 }
+
+// Retorna un món amb les seves activitats
+export function obtenirMon(idMon) {
+  return demanar(`/api/mons/${idMon}`);
+}

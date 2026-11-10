@@ -1,8 +1,116 @@
 {
   "mons": [
-    { "id": "tardor",    "nom": "Tardor",    "ordre": 1, "disponible": true },
-    { "id": "hivern",    "nom": "Hivern",    "ordre": 2, "disponible": false },
-    { "id": "primavera", "nom": "Primavera", "ordre": 3, "disponible": false },
-    { "id": "estiu",     "nom": "Estiu",     "ordre": 4, "disponible": false }
+    {
+      "id": "tardor",
+      "nom": "Tardor",
+      "ordre": 1,
+      "disponible": true,
+      "hort": {
+        "preus": [
+          3,
+          5,
+          8
+        ],
+        "bancals": [
+          {
+            "id": "carbassa",
+            "cultiu": "carbassa"
+          },
+          {
+            "id": "pastanaga",
+            "cultiu": "pastanaga"
+          },
+          {
+            "id": "col",
+            "cultiu": "col"
+          },
+          {
+            "id": "enciam",
+            "cultiu": "enciam"
+          },
+          {
+            "id": "remolatxa",
+            "cultiu": "remolatxa"
+          }
+        ]
+      },
+      "activitats": [
+        {
+          "id": "comptar-llavors",
+          "nom": "Comptar llavors",
+          "tipus": "comptar",
+          "pictograma": 2714
+        },
+        {
+          "id": "classificar-fruites",
+          "nom": "Classificar fruites",
+          "tipus": "classificar",
+          "pictograma": 4653
+        },
+        {
+          "id": "que-creix",
+          "nom": "Què creix a la tardor?",
+          "tipus": "triar",
+          "pictograma": 5063
+        },
+        {
+          "id": "regar-recollir",
+          "nom": "Regar i recollir",
+          "tipus": "regar",
+          "pictograma": 2816
+        },
+        {
+          "id": "cicle-planta",
+          "nom": "Cicle de la planta",
+          "tipus": "ordenar",
+          "pictograma": 23991
+        }
+      ]
+    },
+    {
+      "id": "hivern",
+      "nom": "Hivern",
+      "ordre": 2,
+      "disponible": false,
+      "hort": {
+        "preus": [
+          3,
+          5,
+          8
+        ],
+        "bancals": []
+      },
+      "activitats": []
+    },
+    {
+      "id": "primavera",
+      "nom": "Primavera",
+      "ordre": 3,
+      "disponible": false,
+      "hort": {
+        "preus": [
+          3,
+          5,
+          8
+        ],
+        "bancals": []
+      },
+      "activitats": []
+    },
+    {
+      "id": "estiu",
+      "nom": "Estiu",
+      "ordre": 4,
+      "disponible": false,
+      "hort": {
+        "preus": [
+          3,
+          5,
+          8
+        ],
+        "bancals": []
+      },
+      "activitats": []
+    }
   ]
 }

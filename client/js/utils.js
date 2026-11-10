@@ -35,3 +35,28 @@ export function capcalera(nav, titol, { alumne, llavors } = {}) {
   element.querySelector('[data-accio="ajuda"]').addEventListener("click", () => nav.anar("ajuda"));
   return element;
 }
+
+// Finestra de confirmació. botons = [{ text, classe, accio }]
+// Retorna l'element per si cal tancar-lo des de fora.
+export function dialeg({ titol, contingut = "", botons }) {
+  const fons = html(`
+    <div class="dialeg-fons">
+      <div class="dialeg" role="dialog" aria-modal="true">
+        <h2>${titol}</h2>
+        ${contingut}
+        <div class="dialeg__botons"></div>
+      </div>
+    </div>
+  `);
+  const zona = fons.querySelector(".dialeg__botons");
+  for (const { text, classe = "", accio } of botons) {
+    const boto = html(`<button class="boto ${classe}">${text}</button>`);
+    boto.addEventListener("click", () => {
+      fons.remove();
+      accio?.();
+    });
+    zona.append(boto);
+  }
+  document.body.append(fons);
+  return fons;
+}

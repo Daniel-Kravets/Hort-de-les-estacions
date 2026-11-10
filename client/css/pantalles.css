@@ -237,3 +237,164 @@
   transform: translate(0, -50%);
   pointer-events: none;
 }
+
+
+/* ---------- EL MEU HORT ---------- */
+.hort {
+  position: relative;
+  width: min(100%, 980px);
+  aspect-ratio: 1000 / 560;
+}
+.hort__camp { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Un bancal: cartell amb el pictograma, terra llaurada i plantes */
+.bancal {
+  position: absolute;
+  width: 23%;
+  aspect-ratio: 220 / 150;
+  transform: translate(-50%, -50%) rotate(var(--gir));
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform var(--transicio);
+}
+.bancal:hover  { transform: translate(-50%, -50%) rotate(0) scale(1.05); }
+.bancal:active { transform: translate(-50%, -50%) scale(.97); }
+
+.bancal__terra {
+  position: absolute;
+  left: 0; right: 0; bottom: 14%;
+  height: 42%;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 9px, rgba(0,0,0,.07) 9px 12px),   /* solcs */
+    var(--terra);
+  border-radius: 40px 46px 42px 48px / 30px 34px 30px 36px;
+  box-shadow: 0 7px 0 var(--terra-fosc);
+}
+.bancal__plantes {
+  position: absolute;
+  left: 0; bottom: 30%;
+  width: 100%;
+  overflow: visible;
+}
+/* Etiqueta amb el preu de la fase següent (o ✓ si ja és al màxim) */
+.bancal__preu {
+  position: absolute;
+  right: -4%; top: -6%;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px 4px 10px;
+  background: var(--mostassa-clar);
+  border-radius: var(--radi-pedra);
+  font-size: var(--text-petit);
+  font-weight: 700;
+  transform: rotate(6deg);
+  box-shadow: 0 4px 0 var(--mostassa);
+}
+.bancal__preu .llavors__llavor { width: 14px; height: 20px; }
+.bancal__preu--fet { background: var(--salvia-clar); box-shadow: 0 4px 0 var(--salvia); color: var(--salvia-fosc); }
+
+.bancal--creix .bancal__plantes { animation: creix 650ms var(--transicio); transform-origin: 50% 90%; }
+@keyframes creix { 0% { transform: scale(.6); } 100% { transform: scale(1); } }
+
+/* Barra de progrés de l'hort */
+.hort__progres {
+  position: absolute;
+  left: 50%; top: 0;
+  transform: translate(-50%, -50%);
+  padding: 10px 14px;
+  background: var(--fons-paper);
+  border-radius: var(--radi-pedra);
+  box-shadow: 0 6px 0 var(--fons-fosc);
+}
+.hort__barra {
+  display: block;
+  width: 260px; height: 22px;
+  background: var(--fons-fosc);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.hort__ple {
+  display: block;
+  width: 0; height: 100%;
+  background: var(--salvia);
+  border-radius: 12px;
+  transition: width 600ms var(--transicio);
+}
+
+/* Planta dins del diàleg de fer créixer */
+.dialeg__planta {                  /* un bancal petit amb la planta que sortirà */
+  position: relative;
+  width: 280px;
+  aspect-ratio: 220 / 150;
+}
+.dialeg .llavors { font-size: 36px; }
+
+/* En Cargolet i la botiga */
+.hort__cargolet {
+  position: absolute;
+  left: 3%; bottom: 3%;
+  pointer-events: none;
+}
+.hort__jugar {
+  position: absolute;
+  left: 50%; bottom: 4%;
+  transform: translateX(-50%);
+  min-height: 96px;
+  font-size: 44px;
+}
+.hort__jugar:hover  { transform: translateX(-50%) translateY(-3px) scale(1.03); }
+.hort__jugar:active { transform: translateX(-50%) translateY(6px); }
+.hort__botiga {
+  position: absolute;
+  right: 2%; bottom: 4%;
+  padding: 0 28px 0 14px;
+}
+.hort__botiga img { width: 60px; height: 60px; object-fit: contain; }
+
+/* Quan l'hort està complet: floretes per tot el camp */
+.hort--florit::after {
+  content: "";
+  position: absolute;
+  inset: 4%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 12%, var(--mostassa) 0 7px, transparent 8px),
+    radial-gradient(circle at 36% 48%, #E9B6A0 0 6px, transparent 7px),
+    radial-gradient(circle at 64% 47%, var(--mostassa) 0 6px, transparent 7px),
+    radial-gradient(circle at 92% 14%, #E9B6A0 0 7px, transparent 8px),
+    radial-gradient(circle at 50% 92%, var(--mostassa) 0 6px, transparent 7px),
+    radial-gradient(circle at 86% 60%, #FFFDF7 0 6px, transparent 7px),
+    radial-gradient(circle at 18% 60%, #FFFDF7 0 6px, transparent 7px);
+  animation: aparicio 600ms var(--transicio);
+}
+
+
+/* ---------- ACTIVITATS DE L'ESTACIÓ ---------- */
+.activitats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 980px;
+}
+.activitat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 178px;
+  padding: 30px 12px 16px;
+}
+.activitat .picto { width: 120px; padding: 10px; box-shadow: 0 0 0 4px var(--linia); }
+.activitat__nom {
+  min-height: 3.6em;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.activitat .estrelles--petites .estrella { width: 24px; }
+.activitat .estrelles--petites .estrella:nth-child(2) { width: 30px; }

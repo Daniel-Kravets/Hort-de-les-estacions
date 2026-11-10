@@ -23,10 +23,22 @@ app.get("/api/grups/:id", async (req, res) => {
   res.json(grup);
 });
 
-// Els mons (estacions) del joc, en ordre
+// Els mons (estacions) del joc, en ordre (sense el detall de les activitats)
 app.get("/api/mons", async (req, res) => {
   const { mons } = await llegirJSON("mons.json");
-  res.json(mons.sort((a, b) => a.ordre - b.ordre));
+  const resum = mons
+    .sort((a, b) => a.ordre - b.ordre)
+    .map(({ activitats, ...mon }) => mon);
+  res.json(resum);
+});
+
+// Un món amb les seves activitats
+app.get("/api/mons/:id", async (req, res) => {
+  const { mons } = await llegirJSON("mons.json");
+  const mon = mons.find((m) => m.id === req.params.id);
+
+  if (!mon) return res.status(404).json({ error: "Aquest món no existeix" });
+  res.json(mon);
 });
 
 // ---------- Fitxers estàtics: HTML, CSS, JS, fonts i imatges ----------

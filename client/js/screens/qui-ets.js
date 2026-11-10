@@ -1,6 +1,7 @@
 // Pantalla 3 · QUI ETS? L'infant toca el seu animal (a la versió final, la seva foto)
 import { html, capcalera, imatgeAlumne } from "../utils.js";
 import { obtenirGrup } from "../services/api.js";
+import { començarPartida } from "../estat.js";
 
 export default {
   id: "qui-ets",
@@ -29,7 +30,10 @@ export default {
 
         llista.querySelectorAll(".alumne").forEach((boto) => {
           const alumne = grup.alumnes.find((a) => a.id === boto.dataset.id);
-          boto.addEventListener("click", () => nav.anar("mapa", { alumne, classe }));
+          boto.addEventListener("click", () => {
+            començarPartida(classe, alumne);
+            nav.anar("mapa");
+          });
         });
       })
       .catch((error) => {
