@@ -2,11 +2,13 @@
 import { Navegador } from "./navegador.js";
 import inici from "./screens/inici.js";
 import triarClasse from "./screens/triar-classe.js";
+import quiEts from "./screens/qui-ets.js";
 
 const nav = new Navegador(document.getElementById("app"));
 
 nav
   .registrar(inici)
-  .registrar(triarClasse);
+  .registrar(triarClasse)
+  .registrar(quiEts);
 
 nav.anar("inici");

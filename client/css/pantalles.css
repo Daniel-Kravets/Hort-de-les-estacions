@@ -113,3 +113,30 @@
   border-radius: 40px 40px 12px 40px;
   transform: rotate(-4deg);
 }
+
+
+/* Variant per a pantalles amb molt contingut: menys aire perquè no calgui fer scroll */
+.pantalla__cos--compacte { gap: 28px; padding: 20px 32px 48px; }
+
+/* ---------- QUI ETS? ---------- */
+.alumnes {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 36px 52px;
+  justify-content: center;
+}
+.alumne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 30px 24px 16px;
+}
+.alumne .picto {
+  width: 124px;
+  padding: 10px;
+  box-shadow: 0 0 0 4px var(--linia);
+}
+.alumne__nom { font-size: 30px; font-weight: 700; }
+
+.carregant { font-size: var(--text-base); color: var(--text-suau); }

@@ -1,0 +1,184 @@
+{
+  "grups": [
+    {
+      "id": "I3",
+      "nivell": "I3",
+      "alumnes": [
+        {
+          "id": "alumne-001",
+          "nom": "Pau",
+          "foto": null,
+          "avatar": {
+            "animal": "conill",
+            "pictograma": 2351
+          }
+        },
+        {
+          "id": "alumne-002",
+          "nom": "Laia",
+          "foto": null,
+          "avatar": {
+            "animal": "granota",
+            "pictograma": 2543
+          }
+        },
+        {
+          "id": "alumne-003",
+          "nom": "Nil",
+          "foto": null,
+          "avatar": {
+            "animal": "gat",
+            "pictograma": 2406
+          }
+        },
+        {
+          "id": "alumne-004",
+          "nom": "Júlia",
+          "foto": null,
+          "avatar": {
+            "animal": "gos",
+            "pictograma": 2517
+          }
+        },
+        {
+          "id": "alumne-005",
+          "nom": "Arnau",
+          "foto": null,
+          "avatar": {
+            "animal": "pollet",
+            "pictograma": 2533
+          }
+        },
+        {
+          "id": "alumne-006",
+          "nom": "Martina",
+          "foto": null,
+          "avatar": {
+            "animal": "ànec",
+            "pictograma": 2563
+          }
+        }
+      ]
+    },
+    {
+      "id": "I4",
+      "nivell": "I4",
+      "alumnes": [
+        {
+          "id": "alumne-007",
+          "nom": "Pol",
+          "foto": null,
+          "avatar": {
+            "animal": "esquirol",
+            "pictograma": 2257
+          }
+        },
+        {
+          "id": "alumne-008",
+          "nom": "Ona",
+          "foto": null,
+          "avatar": {
+            "animal": "eriçó",
+            "pictograma": 26829
+          }
+        },
+        {
+          "id": "alumne-009",
+          "nom": "Marc",
+          "foto": null,
+          "avatar": {
+            "animal": "mussol",
+            "pictograma": 2671
+          }
+        },
+        {
+          "id": "alumne-010",
+          "nom": "Aina",
+          "foto": null,
+          "avatar": {
+            "animal": "tortuga",
+            "pictograma": 2596
+          }
+        },
+        {
+          "id": "alumne-011",
+          "nom": "Biel",
+          "foto": null,
+          "avatar": {
+            "animal": "porc",
+            "pictograma": 2327
+          }
+        },
+        {
+          "id": "alumne-012",
+          "nom": "Carla",
+          "foto": null,
+          "avatar": {
+            "animal": "ovella",
+            "pictograma": 2489
+          }
+        }
+      ]
+    },
+    {
+      "id": "I5",
+      "nivell": "I5",
+      "alumnes": [
+        {
+          "id": "alumne-013",
+          "nom": "Jan",
+          "foto": null,
+          "avatar": {
+            "animal": "lleó",
+            "pictograma": 2449
+          }
+        },
+        {
+          "id": "alumne-014",
+          "nom": "Emma",
+          "foto": null,
+          "avatar": {
+            "animal": "girafa",
+            "pictograma": 2437
+          }
+        },
+        {
+          "id": "alumne-015",
+          "nom": "Hugo",
+          "foto": null,
+          "avatar": {
+            "animal": "elefant",
+            "pictograma": 2372
+          }
+        },
+        {
+          "id": "alumne-016",
+          "nom": "Lia",
+          "foto": null,
+          "avatar": {
+            "animal": "papallona",
+            "pictograma": 2465
+          }
+        },
+        {
+          "id": "alumne-017",
+          "nom": "Pere",
+          "foto": null,
+          "avatar": {
+            "animal": "cavall",
+            "pictograma": 2294
+          }
+        },
+        {
+          "id": "alumne-018",
+          "nom": "Abril",
+          "foto": null,
+          "avatar": {
+            "animal": "abella",
+            "pictograma": 2239
+          }
+        }
+      ]
+    }
+  ]
+}

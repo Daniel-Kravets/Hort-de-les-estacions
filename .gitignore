@@ -12,3 +12,6 @@ server/data/partides/*.json
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Fotos reals dels alumnes: mai al repositori (dades de menors)
+server/data/fotos/
