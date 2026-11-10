@@ -398,3 +398,80 @@
 }
 .activitat .estrelles--petites .estrella { width: 24px; }
 .activitat .estrelles--petites .estrella:nth-child(2) { width: 30px; }
+
+
+/* ---------- ACTIVITAT (contenidor dels minijocs) ---------- */
+.activitat-joc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 32px 40px;
+}
+.activitat-joc__instruccio {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.activitat-joc__instruccio .bafarada { margin-bottom: 70px; font-size: 36px; }
+.activitat-joc__zona {
+  flex: 1;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* +2 que puja des del comptador de llavors */
+.llavors { position: relative; }
+.premi-llavors {
+  position: absolute;
+  left: 50%; top: 100%;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--mostassa-fosc);
+  animation: puja 1s ease-out forwards;
+}
+@keyframes puja { from { transform: translate(-50%, 0); opacity: 1; } to { transform: translate(-50%, 40px); opacity: 0; } }
+
+/* ---------- MINIJOC: COMPTAR LLAVORS ---------- */
+.comptar { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+.comptar__safata {
+  position: relative;
+  width: 620px; height: 200px;
+  background: var(--terra-clar);
+  border-radius: var(--radi-organic-2);
+  box-shadow: inset 0 8px 0 rgba(0,0,0,.06), 0 8px 0 var(--terra);
+}
+.comptar__llavor {
+  position: absolute;
+  width: 44px; height: 64px;
+  transform: translate(-50%, -50%) rotate(var(--gir));
+  background: var(--terra-fosc);
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  box-shadow: inset -8px -6px 0 rgba(0,0,0,.15);
+  transition: transform 200ms, background 200ms;
+}
+.comptar__llavor--comptada { background: var(--mostassa); transform: translate(-50%, -50%) rotate(0) scale(1.2); }
+.comptar__llavor--comptada::after {   /* el número sobre la llavor quan la comptem */
+  content: attr(data-numero);
+  position: absolute;
+  left: 50%; top: -48px;
+  transform: translateX(-50%);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+}
+.comptar__opcions { display: flex; gap: 40px; }
+.opcio-numero:disabled { cursor: default; }
+.opcio-numero.es-correcta   { box-shadow: 0 0 0 8px var(--salvia), 0 12px 0 8px var(--salvia-fosc); animation: salt 600ms var(--transicio); }
+.opcio-numero.es-incorrecta { box-shadow: 0 0 0 8px var(--mostassa), 0 12px 0 8px var(--mostassa-fosc); animation: no-no 450ms ease-in-out; }
+
+/* ---------- RESULTATS ---------- */
+.resultats__premi { display: flex; align-items: center; gap: 40px; }
+.resultats__dades { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.estrelles--grans .estrella { width: 96px; }
+.estrelles--grans .estrella:nth-child(2) { width: 124px; }
+.resultats__dades .llavors { font-size: 44px; }
+.resultats__botons { display: flex; align-items: center; gap: 36px; }

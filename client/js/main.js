@@ -6,6 +6,8 @@ import quiEts from "./screens/qui-ets.js";
 import mapa from "./screens/mapa.js";
 import hort from "./screens/hort.js";
 import activitats from "./screens/activitats.js";
+import activitat from "./screens/activitat.js";
+import resultats from "./screens/resultats.js";
 
 const nav = new Navegador(document.getElementById("app"));
 
@@ -15,6 +17,8 @@ nav
   .registrar(quiEts)
   .registrar(mapa)
   .registrar(hort)
-  .registrar(activitats);
+  .registrar(activitats)
+  .registrar(activitat)
+  .registrar(resultats);
 
 nav.anar("inici");
