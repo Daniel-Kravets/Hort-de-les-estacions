@@ -1,0 +1,115 @@
+/* =========================================================
+   L'HORT DE LES ESTACIONS · PANTALLES
+   Contenidor de pantalles, transicions i estil de cada pantalla
+   ========================================================= */
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Cada pantalla ocupa tot l'espai i es pot lliscar */
+.pantalla {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  /* Fons opac: cada pantalla porta el seu, i així tapa l'anterior en lliscar */
+  background:
+    var(--fons-turons) bottom / 100% 140px no-repeat,
+    var(--fons-llavors) 0 0 / 180px 180px,
+    var(--fons);
+}
+
+.pantalla__cos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 48px 32px 160px;      /* espai a baix per als turons */
+}
+
+/* ---------- Transicions: lliscar suau amb un petit rebot ---------- */
+.entra-endavant  { animation: entra-dreta    480ms cubic-bezier(.34, 1.3, .64, 1) both; }
+.surt-endavant   { animation: surt-esquerra  360ms ease-in both; }
+.entra-enrere    { animation: entra-esquerra 480ms cubic-bezier(.34, 1.3, .64, 1) both; }
+.surt-enrere     { animation: surt-dreta     360ms ease-in both; }
+
+@keyframes entra-dreta    { from { transform: translateX(100%); }  to { transform: translateX(0); } }
+@keyframes surt-esquerra  { from { transform: translateX(0); }     to { transform: translateX(-35%); opacity: 0; } }
+@keyframes entra-esquerra { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes surt-dreta     { from { transform: translateX(0); }     to { transform: translateX(35%); opacity: 0; } }
+
+
+/* ---------- INICI ---------- */
+.inici__titol {
+  font-size: var(--text-gegant);
+  text-align: center;
+  color: var(--salvia-fosc);
+  line-height: 1;
+}
+.inici__titol span {               /* "DE LES ESTACIONS" més petit, en una altra línia */
+  display: block;
+  margin-top: 10px;
+  font-size: 36px;
+  color: var(--terra-fosc);
+  letter-spacing: .12em;
+}
+.inici__docent {
+  position: absolute;
+  left: 28px; bottom: 28px;
+  min-height: 56px;
+  padding: 0 24px;
+  font-size: var(--text-petit);
+}
+
+
+/* ---------- TRIA LA CLASSE ---------- */
+.classes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 56px;
+}
+.classe {
+  width: 240px;
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.classe__cercle {                  /* el "segell" de color de cada classe */
+  display: grid;
+  place-items: center;
+  width: 150px;
+  aspect-ratio: 1;
+  border-radius: 50% 46% 52% 48% / 48% 52% 46% 50%;
+  background: var(--color-classe);
+  color: var(--fons-paper);
+  font-size: 64px;
+  font-weight: 700;
+  box-shadow: 0 8px 0 var(--color-classe-fosc);
+}
+.classe--i3 { --color-classe: var(--mostassa); --color-classe-fosc: var(--mostassa-fosc); }
+.classe--i4 { --color-classe: var(--salvia);   --color-classe-fosc: var(--salvia-fosc); }
+.classe--i5 { --color-classe: var(--terra);    --color-classe-fosc: var(--terra-fosc); }
+
+/* En Cargolet a l'inici, amb la bafarada que diu HOLA */
+.inici__mascota {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: -12px 0 -20px;
+}
+.inici__hola {
+  font-size: 32px;
+  padding: 14px 26px;
+  margin-top: 8px;
+  border-radius: 40px 40px 12px 40px;
+  transform: rotate(-4deg);
+}
