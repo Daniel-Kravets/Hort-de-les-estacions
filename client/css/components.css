@@ -1,0 +1,242 @@
+/* =========================================================
+   L'HORT DE LES ESTACIONS · COMPONENTS
+   Peces que es repeteixen a totes les pantalles
+   ========================================================= */
+
+/* ---------- BOTÓ: peça de plastilina ---------- */
+.boto {
+  --color: var(--salvia);
+  --color-fosc: var(--salvia-fosc);
+  --color-text: var(--fons-paper);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: var(--boto-alt);
+  min-width: var(--boto-alt);
+  padding: 0 40px;
+  border: none;
+  border-radius: var(--radi-organic);
+  background: var(--color);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--ombra-fang) var(--color-fosc);
+  transform: translateY(0) rotate(var(--gir, 0deg));
+  transition: transform var(--transicio), box-shadow var(--transicio);
+}
+.boto:hover  { transform: translateY(-3px) rotate(var(--gir, 0deg)) scale(1.03); }
+.boto:active { transform: translateY(6px) rotate(var(--gir, 0deg)); box-shadow: 0 1px 0 var(--color-fosc); }
+
+.boto--terra    { --color: var(--terra);    --color-fosc: var(--terra-fosc); }
+.boto--mostassa { --color: var(--mostassa); --color-fosc: var(--mostassa-fosc); --color-text: var(--text); }
+.boto--sortir   { --color: var(--argila);   --color-fosc: var(--argila-fosc); }
+.boto--ajuda    { --color: var(--boira);    --color-fosc: var(--boira-fosc); }
+.boto--suau     { --color: var(--fons-paper); --color-fosc: var(--linia); --color-text: var(--text); }
+
+.boto--gegant { min-height: 112px; padding: 0 72px; font-size: 52px; border-radius: var(--radi-organic-2); }
+.boto--rodo   { padding: 0; width: var(--boto-alt); border-radius: 50% 46% 52% 48% / 48% 52% 46% 50%; font-size: 40px; }
+
+/* Icona dins d'un botó (SVG en línia) */
+.boto svg { width: 1.2em; height: 1.2em; flex: none; }
+
+
+/* ---------- CAPÇALERA amb vora ondulada ---------- */
+.capcalera {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--espai);
+  padding: 16px 28px 10px;
+  background: var(--fons-paper);
+}
+.capcalera::after {             /* la vora de baix fa onades, com un camp llaurat */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -18px;
+  height: 18px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 18' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H120 V6 C 100 18 80 18 60 8 S 20 -2 0 10 Z' fill='%23FFFDF7'/%3E%3C/svg%3E") repeat-x;
+  background-size: 120px 18px;
+}
+.capcalera__titol { flex: 1; text-align: center; font-size: 36px; font-weight: 700; }
+
+
+/* ---------- COMPTADOR DE LLAVORS ---------- */
+.llavors {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px 10px 16px;
+  background: var(--mostassa-clar);
+  border-radius: var(--radi-pedra);
+  font-weight: 700;
+  font-size: var(--text-base);
+  transform: rotate(-2deg);
+}
+.llavors__llavor {                /* una llavor dibuixada amb CSS */
+  width: 22px; height: 32px;
+  background: var(--terra-fosc);
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  transform: rotate(18deg);
+  box-shadow: inset -5px -4px 0 rgba(0, 0, 0, .15);
+}
+.llavors.ha-guanyat { animation: salt 600ms var(--transicio); }
+
+
+/* ---------- PROGRÉS: una fila de llavors que germinen ---------- */
+.progres { display: flex; gap: 14px; align-items: flex-end; }
+.progres__pas {
+  width: 26px; height: 34px;
+  background: var(--fons-fosc);
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+}
+.progres__pas.fet { background: var(--salvia); position: relative; }
+.progres__pas.fet::before {       /* el brot que surt quan el pas està fet */
+  content: "";
+  position: absolute;
+  left: 9px; top: -14px;
+  width: 14px; height: 14px;
+  background: var(--salvia-fosc);
+  border-radius: 0 100% 0 100%;
+}
+.progres__pas.actual { background: var(--mostassa); animation: batec 1.4s ease-in-out infinite; }
+
+
+/* ---------- TARGETA: com un paper enganxat a la llibreta de l'hort ---------- */
+.targeta {
+  position: relative;
+  padding: 36px 28px 28px;
+  background: var(--fons-paper);
+  border-radius: var(--radi-pedra);
+  box-shadow: 0 10px 0 var(--fons-fosc);
+  transform: rotate(var(--gir, -1.5deg));
+  transition: transform var(--transicio);
+}
+.targeta:nth-child(even) { --gir: 1.8deg; }
+.targeta:nth-child(3n)   { --gir: -0.6deg; }
+.targeta::before {                /* tira de cinta adhesiva */
+  content: "";
+  position: absolute;
+  top: -14px; left: 50%;
+  width: 110px; height: 30px;
+  background: rgba(217, 165, 91, .55);
+  transform: translateX(-50%) rotate(-4deg);
+  border-radius: 3px;
+}
+button.targeta { border: none; cursor: pointer; text-align: center; }
+button.targeta:hover { transform: rotate(0deg) scale(1.04); }
+
+.targeta--bloquejada { filter: grayscale(.9); opacity: .55; cursor: not-allowed; }
+
+
+/* ---------- PICTOGRAMA (ARASAAC) ---------- */
+.picto {
+  display: grid;
+  place-items: center;
+  width: 220px;
+  aspect-ratio: 1;
+  padding: 18px;
+  background: var(--fons-paper);
+  border: 6px solid var(--fons-paper);
+  border-radius: var(--radi-organic);
+  box-shadow: 0 0 0 4px var(--linia), 0 10px 0 4px var(--fons-fosc);
+  transform: rotate(var(--gir, 0deg));
+}
+.picto img { width: 100%; height: 100%; object-fit: contain; }
+
+
+/* ---------- OPCIÓ DE RESPOSTA ---------- */
+.opcio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;                       /* espai perquè l'ombra no tapi els accents */
+  padding: 18px 18px 22px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform var(--transicio);
+}
+.opcio:hover   { transform: translateY(-6px) rotate(-1deg); }
+.opcio:active  { transform: scale(.96); }
+.opcio__nom    { font-size: var(--text-base); font-weight: 700; }
+
+.opcio.es-correcta .picto { box-shadow: 0 0 0 8px var(--salvia), 0 12px 0 8px var(--salvia-fosc); }
+.opcio.es-correcta        { animation: salt 600ms var(--transicio); }
+.opcio.es-incorrecta      { animation: no-no 450ms ease-in-out; }
+.opcio.es-incorrecta .picto { box-shadow: 0 0 0 8px var(--mostassa), 0 12px 0 8px var(--mostassa-fosc); }
+
+/* Opció de número gran (activitat de comptar) */
+.opcio-numero {
+  width: 150px; height: 150px;
+  border: none;
+  border-radius: var(--radi-organic-2);
+  background: var(--fons-paper);
+  box-shadow: 0 0 0 5px var(--linia), 0 10px 0 5px var(--fons-fosc);
+  font-size: var(--text-gegant);
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform var(--transicio);
+}
+.opcio-numero:nth-child(2) { border-radius: var(--radi-organic); }
+.opcio-numero:hover { transform: translateY(-6px); }
+
+
+/* ---------- BAFARADA: on parla la instrucció ---------- */
+.bafarada {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 28px;
+  background: var(--fons-paper);
+  border-radius: 40px 46px 42px 12px;
+  box-shadow: 0 8px 0 var(--fons-fosc);
+  font-size: 40px;
+  font-weight: 700;
+}
+.bafarada .boto { flex: none; }
+
+
+/* ---------- ESTRELLES ---------- */
+.estrelles { display: flex; gap: 10px; align-items: flex-end; }
+.estrella {
+  width: 64px; aspect-ratio: 1;
+  background: var(--fons-fosc);
+  clip-path: polygon(50% 2%, 63% 36%, 98% 38%, 70% 60%, 80% 96%, 50% 75%, 20% 96%, 30% 60%, 2% 38%, 37% 36%);
+}
+.estrella:nth-child(2) { width: 80px; }   /* la del mig, més gran: com un podi */
+.estrella.guanyada { background: var(--mostassa); animation: brilla 700ms var(--transicio) backwards; }
+.estrella.guanyada:nth-child(2) { animation-delay: 150ms; }
+.estrella.guanyada:nth-child(3) { animation-delay: 300ms; }
+
+
+/* ---------- DIÀLEG (confirmar sortir, comprar...) ---------- */
+.dialeg-fons {
+  position: fixed; inset: 0;
+  display: grid; place-items: center;
+  background: rgba(74, 64, 54, .45);
+  z-index: 10;
+}
+.dialeg {
+  display: flex; flex-direction: column; align-items: center; gap: 28px;
+  padding: 44px 56px;
+  max-width: 640px;
+  background: var(--fons-paper);
+  border-radius: var(--radi-organic-2);
+  box-shadow: 0 14px 0 var(--fons-fosc);
+  text-align: center;
+  animation: aparicio 280ms var(--transicio);
+}
+.dialeg__botons { display: flex; gap: 28px; }
+
+
+/* ---------- ANIMACIONS ---------- */
+@keyframes salt     { 0%,100% { transform: translateY(0) } 40% { transform: translateY(-18px) scale(1.06) } }
+@keyframes no-no    { 0%,100% { transform: translateX(0) } 25% { transform: translateX(-12px) rotate(-3deg) } 75% { transform: translateX(12px) rotate(3deg) } }
+@keyframes batec    { 0%,100% { transform: scale(1) } 50% { transform: scale(1.15) } }
+@keyframes brilla   { 0% { transform: scale(0) rotate(-40deg) } 100% { transform: scale(1) rotate(0) } }
+@keyframes aparicio { 0% { transform: scale(.8); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }

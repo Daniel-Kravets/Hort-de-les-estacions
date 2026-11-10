@@ -1,0 +1,137 @@
+/* =========================================================
+   L'HORT DE LES ESTACIONS · BASE
+   Colors, tipografia, mides i fons comuns a tota l'app
+   ========================================================= */
+
+/* ---------- Tipografia: Andika (SIL OFL), dins del projecte ---------- */
+@font-face {
+  font-family: "Andika";
+  src: url("../assets/fonts/andika-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Andika";
+  src: url("../assets/fonts/andika-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ---------- Variables de disseny ---------- */
+:root {
+  /* Paleta A · Terra i sàlvia */
+  --fons:            #F5F1E8;  /* crema, fons general */
+  --fons-paper:      #FFFDF7;  /* targetes i pictogrames */
+  --fons-fosc:       #EAE2D2;  /* zones enfonsades, opcions */
+
+  --salvia:          #7C8B52;  /* acció principal: jugar, continuar, correcte */
+  --salvia-fosc:     #5C6A38;
+  --salvia-clar:     #DDE3C6;
+
+  --terra:           #C8A27A;  /* terra de l'hort, elements de joc */
+  --terra-fosc:      #9E7B55;
+  --terra-clar:      #EEDFCB;
+
+  --mostassa:        #D9A55B;  /* llavors, premis, estrelles */
+  --mostassa-fosc:   #B0813C;
+  --mostassa-clar:   #F5E3C3;
+
+  --argila:          #B9735A;  /* sortir (no fem servir vermell) */
+  --argila-fosc:     #934F3A;
+
+  --boira:           #8FA5AE;  /* ajuda */
+  --boira-fosc:      #67808A;
+
+  --text:            #4A4036;
+  --text-suau:       #7A6E62;
+  --linia:           #D8CDB9;
+
+  /* Mides pensades per a infants de 3 a 5 anys */
+  --text-base:   28px;
+  --text-petit:  22px;
+  --text-titol:  48px;
+  --text-gegant: 72px;
+  --boto-alt:    80px;
+  --espai:       24px;
+
+  /* Cantonades "fetes a mà": cap cantonada és igual */
+  --radi-organic:  32px 40px 36px 44px / 40px 32px 44px 36px;
+  --radi-organic-2: 44px 30px 40px 34px / 34px 42px 30px 40px;
+  --radi-pedra:    24px 30px 26px 32px / 30px 24px 32px 26px;
+
+  /* Ombra "de fang": el botó sembla una peça de plastilina */
+  --ombra-fang: 0 7px 0;
+  --transicio: 160ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+/* ---------- Reset mínim ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; height: 100%; }
+
+body {
+  font-family: "Andika", "Trebuchet MS", sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.25;
+  color: var(--text);
+  text-transform: uppercase;        /* TOTES LES LLETRES EN MAJÚSCULES */
+  letter-spacing: 0.04em;
+  background-color: var(--fons);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;                /* que el dit no seleccioni text a la tauleta */
+
+  /* Llavoretes escampades pel fons, molt suaus */
+  background-image:
+    radial-gradient(ellipse 5px 8px at 20px 30px, rgba(158, 123, 85, .14) 98%, transparent),
+    radial-gradient(ellipse 4px 7px at 110px 90px, rgba(124, 139, 82, .12) 98%, transparent),
+    radial-gradient(ellipse 5px 8px at 70px 150px, rgba(217, 165, 91, .14) 98%, transparent);
+  background-size: 180px 180px;
+}
+
+/* Turons de l'hort a la part de baix de la pantalla */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 140px;
+  pointer-events: none;
+  z-index: -1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 140' preserveAspectRatio='none'%3E%3Cpath d='M0 80 C 180 20 320 120 520 70 S 860 10 1020 60 S 1160 90 1200 70 L1200 140 L0 140Z' fill='%23DDE3C6'/%3E%3Cpath d='M0 110 C 220 70 380 140 600 100 S 960 70 1200 105 L1200 140 L0 140Z' fill='%23EEDFCB'/%3E%3C/svg%3E") bottom / 100% 100% no-repeat;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+h1 { font-size: var(--text-titol); font-weight: 700; line-height: 1.05; }
+h2 { font-size: 36px; font-weight: 700; }
+h3 { font-size: var(--text-base); font-weight: 700; }
+
+button {
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+img { max-width: 100%; display: block; }
+
+/* Focus visible per a teclat (accessibilitat), discret amb el ratolí */
+:focus-visible {
+  outline: 5px dashed var(--mostassa-fosc);
+  outline-offset: 6px;
+}
+
+/* Per a lectors de pantalla */
+.nomes-lector {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Si l'infant o el mestre té les animacions reduïdes, les respectem */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

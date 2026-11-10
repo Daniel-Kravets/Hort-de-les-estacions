@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia d'estil · L'Hort de les Estacions</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Només per a aquesta pàgina de mostra */
+    main { max-width: 1100px; margin: 0 auto; padding: 48px 32px 200px; display: grid; gap: 64px; }
+    section > h2 { margin-bottom: 28px; color: var(--text-suau); font-size: var(--text-petit); }
+    .fila { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+    .mostra-color { width: 120px; height: 90px; border-radius: var(--radi-pedra); box-shadow: 0 6px 0 rgba(0,0,0,.08); }
+    .mostra-color + span { display: block; margin-top: 10px; font-size: 16px; color: var(--text-suau); text-align: center; }
+  </style>
+</head>
+<body>
+
+  <header class="capcalera">
+    <button class="boto boto--suau" aria-label="Tornar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      TORNAR
+    </button>
+    <div class="progres" aria-label="Pregunta 3 de 5">
+      <span class="progres__pas fet"></span>
+      <span class="progres__pas fet"></span>
+      <span class="progres__pas actual"></span>
+      <span class="progres__pas"></span>
+      <span class="progres__pas"></span>
+    </div>
+    <p class="capcalera__titol">GUIA D'ESTIL</p>
+    <div class="llavors"><span class="llavors__llavor"></span>12</div>
+    <button class="boto boto--ajuda boto--rodo" aria-label="Ajuda">?</button>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>COLORS · TERRA I SÀLVIA</h2>
+      <div class="fila">
+        <div><div class="mostra-color" style="background:var(--fons)"></div><span>FONS</span></div>
+        <div><div class="mostra-color" style="background:var(--salvia)"></div><span>SÀLVIA</span></div>
+        <div><div class="mostra-color" style="background:var(--terra)"></div><span>TERRA</span></div>
+        <div><div class="mostra-color" style="background:var(--mostassa)"></div><span>MOSTASSA</span></div>
+        <div><div class="mostra-color" style="background:var(--argila)"></div><span>ARGILA</span></div>
+        <div><div class="mostra-color" style="background:var(--boira)"></div><span>BOIRA</span></div>
+        <div><div class="mostra-color" style="background:var(--text)"></div><span>TEXT</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>TIPOGRAFIA · ANDIKA</h2>
+      <h1>L'HORT DE LES ESTACIONS</h1>
+      <p style="margin-top:16px">TOCA LA RESPOSTA CORRECTA. ÀÉÈÍÏÒÓÚÜ Ç L·L 0123456789</p>
+    </section>
+
+    <section>
+      <h2>BOTONS</h2>
+      <div class="fila">
+        <button class="boto boto--gegant">JUGAR</button>
+        <button class="boto">SEGÜENT</button>
+        <button class="boto boto--terra">TORNA-HO A PROVAR</button>
+        <button class="boto boto--mostassa">BOTIGA</button>
+        <button class="boto boto--sortir">SORTIR</button>
+        <button class="boto boto--ajuda boto--rodo" aria-label="Ajuda">?</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>INSTRUCCIÓ AMB ÀUDIO</h2>
+      <div class="bafarada">
+        <button class="boto boto--mostassa boto--rodo" aria-label="Escoltar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M17 9a4 4 0 0 1 0 6"/><path d="M19.5 6.5a8 8 0 0 1 0 11"/></svg>
+        </button>
+        ON ÉS LA CARBASSA?
+      </div>
+    </section>
+
+    <section>
+      <h2>OPCIONS AMB PICTOGRAMES D'ARASAAC</h2>
+      <div class="fila">
+        <button class="opcio" data-paraula="carbassa"><span class="picto" style="--gir:-2deg"></span><span class="opcio__nom">CARBASSA</span></button>
+        <button class="opcio es-correcta" data-paraula="castanya"><span class="picto" style="--gir:1.5deg"></span><span class="opcio__nom">CASTANYA</span></button>
+        <button class="opcio es-incorrecta" data-paraula="síndria"><span class="picto" style="--gir:-1deg"></span><span class="opcio__nom">SÍNDRIA</span></button>
+      </div>
+    </section>
+
+    <section>
+      <h2>COMPTAR</h2>
+      <div class="fila">
+        <button class="opcio-numero">3</button>
+        <button class="opcio-numero">4</button>
+        <button class="opcio-numero">5</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>TARGETES</h2>
+      <div class="fila" style="gap:40px">
+        <button class="targeta"><h3>TARDOR</h3></button>
+        <button class="targeta"><h3>COMPTAR LLAVORS</h3></button>
+        <div class="targeta targeta--bloquejada"><h3>HIVERN</h3></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>ESTRELLES</h2>
+      <div class="estrelles">
+        <span class="estrella guanyada"></span>
+        <span class="estrella guanyada"></span>
+        <span class="estrella"></span>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Només per a la mostra: busca cada paraula a ARASAAC i posa el primer pictograma
+    document.querySelectorAll("[data-paraula]").forEach(async (opcio) => {
+      const paraula = opcio.dataset.paraula;
+      try {
+        const resposta = await fetch(`https://api.arasaac.org/v1/pictograms/ca/search/${encodeURIComponent(paraula)}`);
+        const resultats = await resposta.json();
+        const id = resultats[0]._id;
+        opcio.querySelector(".picto").innerHTML =
+          `<img src="https://static.arasaac.org/pictograms/${id}/${id}_500.png" alt="${paraula}">`;
+      } catch (error) {
+        console.warn("No s'ha trobat el pictograma de", paraula);
+      }
+    });
+  </script>
+</body>
+</html>
