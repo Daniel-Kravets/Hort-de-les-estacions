@@ -139,4 +139,101 @@
 }
 .alumne__nom { font-size: 30px; font-weight: 700; }
 
-.carregant { font-size: var(--text-base); color: var(--text-suau); }
+/* Missatge de "carregant" o d'error: ocupa tota la fila i queda centrat */
+.carregant {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: var(--text-base);
+  color: var(--text-suau);
+}
+
+
+/* ---------- MAPA D'ESTACIONS ---------- */
+.mapa {
+  position: relative;
+  width: min(100%, 960px);
+  aspect-ratio: 1000 / 460;
+}
+.mapa__cami { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.parada {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+.parada__cercle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 128px;
+  aspect-ratio: 1;
+  border-radius: 50% 46% 52% 48% / 48% 52% 46% 50%;
+  background: var(--color-estacio);
+  color: var(--fons-paper);
+  box-shadow: 0 8px 0 var(--color-estacio-fosc), 0 0 0 8px var(--fons-paper);
+  transition: transform var(--transicio);
+}
+.parada__cercle svg { width: 62px; height: 62px; }
+.parada:hover .parada__cercle { transform: scale(1.06) rotate(-3deg); }
+.parada__nom {
+  padding: 4px 18px;
+  background: var(--fons-paper);
+  border-radius: var(--radi-pedra);
+  font-size: var(--text-petit);
+  font-weight: 700;
+}
+
+.parada--tardor    { --color-estacio: var(--mostassa); --color-estacio-fosc: var(--mostassa-fosc); }
+.parada--hivern    { --color-estacio: var(--boira);    --color-estacio-fosc: var(--boira-fosc); }
+.parada--primavera { --color-estacio: var(--salvia);   --color-estacio-fosc: var(--salvia-fosc); }
+.parada--estiu     { --color-estacio: var(--terra);    --color-estacio-fosc: var(--terra-fosc); }
+
+/* Bloquejada: grisa i amb cadenat */
+.parada--bloquejada .parada__cercle {
+  --color-estacio: #DDD5C7;          /* gris càlid opac: tapa el camí */
+  --color-estacio-fosc: #C7BCA9;
+}
+.parada--bloquejada .parada__nom    { color: var(--text-suau); }
+.parada__cadenat {
+  position: absolute;
+  right: -6px; bottom: -6px;
+  display: grid;
+  place-items: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--text-suau);
+  color: var(--fons-paper);
+}
+.parada__cadenat svg { width: 26px; height: 26px; }
+.parada.es-incorrecta { animation: no-no-parada 450ms ease-in-out; }
+@keyframes no-no-parada {
+  0%, 100% { transform: translate(-50%, -50%); }
+  25% { transform: translate(calc(-50% - 10px), -50%) rotate(-3deg); }
+  75% { transform: translate(calc(-50% + 10px), -50%) rotate(3deg); }
+}
+
+/* Avís "AVIAT!" sobre la parada */
+.parada__avis {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  font-size: var(--text-base);
+  padding: 10px 22px;
+  white-space: nowrap;
+  animation: aparicio 280ms var(--transicio);
+}
+
+/* En Cargolet al costat de la Tardor */
+.mapa__cargolet {
+  position: absolute;
+  left: 1%;
+  top: 38%;
+  transform: translate(0, -50%);
+  pointer-events: none;
+}

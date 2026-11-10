@@ -1,12 +1,6 @@
 // Pantalla 3 · QUI ETS? L'infant toca el seu animal (a la versió final, la seva foto)
-import { html, capcalera } from "../utils.js";
+import { html, capcalera, imatgeAlumne } from "../utils.js";
 import { obtenirGrup } from "../services/api.js";
-import { urlPictograma } from "../services/arasaac.js";
-
-// Imatge de l'alumne: la foto si en té, i si no, el seu animal d'ARASAAC
-function imatgeAlumne(alumne) {
-  return alumne.foto ?? urlPictograma(alumne.avatar.pictograma);
-}
 
 export default {
   id: "qui-ets",

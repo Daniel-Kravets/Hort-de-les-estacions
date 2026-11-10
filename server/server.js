@@ -23,6 +23,12 @@ app.get("/api/grups/:id", async (req, res) => {
   res.json(grup);
 });
 
+// Els mons (estacions) del joc, en ordre
+app.get("/api/mons", async (req, res) => {
+  const { mons } = await llegirJSON("mons.json");
+  res.json(mons.sort((a, b) => a.ordre - b.ordre));
+});
+
 // ---------- Fitxers estàtics: HTML, CSS, JS, fonts i imatges ----------
 app.use(express.static(path.join(__dirname, "..", "client")));
 

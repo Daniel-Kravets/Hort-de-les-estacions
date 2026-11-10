@@ -240,3 +240,15 @@ button.targeta:hover { transform: rotate(0deg) scale(1.04); }
 @keyframes batec    { 0%,100% { transform: scale(1) } 50% { transform: scale(1.15) } }
 @keyframes brilla   { 0% { transform: scale(0) rotate(-40deg) } 100% { transform: scale(1) rotate(0) } }
 @keyframes aparicio { 0% { transform: scale(.8); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
+
+
+/* ---------- Animal / foto de l'alumne a la capçalera ---------- */
+.capcalera__alumne {
+  width: 72px;
+  height: 72px;
+  padding: 6px;
+  object-fit: contain;
+  background: var(--fons-paper);
+  border-radius: 50% 46% 52% 48% / 48% 52% 46% 50%;
+  box-shadow: 0 0 0 4px var(--salvia-clar);
+}
