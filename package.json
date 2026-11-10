@@ -1,0 +1,16 @@
+{
+  "name": "hort-de-les-estacions",
+  "version": "0.1.0",
+  "description": "Serious game web per a educació infantil (I3, I4, I5) - MP0492 Projecte, CFGS DAW",
+  "main": "server/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js"
+  },
+  "author": "Daniel Kravets, Adrià Patricio",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

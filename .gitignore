@@ -1,0 +1,14 @@
+# Dependències de Node
+node_modules/
+npm-debug.log*
+
+# Configuració local
+.env
+
+# Partides guardades dels alumnes (es generen en jugar)
+server/data/partides/*.json
+
+# Fitxers del sistema i de l'editor
+.DS_Store
+Thumbs.db
+.vscode/
