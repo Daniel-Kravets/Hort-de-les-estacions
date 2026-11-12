@@ -34,6 +34,80 @@
           }
         ]
       },
+      "botiga": [
+        {
+          "id": "carreto",
+          "nom": "carretó",
+          "article": "el",
+          "preu": 6,
+          "pictograma": 5947,
+          "lloc": {
+            "x": 27,
+            "y": 88,
+            "mida": 9
+          }
+        },
+        {
+          "id": "banc",
+          "nom": "banc",
+          "article": "el",
+          "preu": 8,
+          "pictograma": 3255,
+          "lloc": {
+            "x": 76,
+            "y": 7,
+            "mida": 10
+          }
+        },
+        {
+          "id": "tanca",
+          "nom": "tanca de fusta",
+          "article": "la",
+          "preu": 8,
+          "pictograma": 6651,
+          "lloc": {
+            "x": 24,
+            "y": 7,
+            "mida": 10
+          }
+        },
+        {
+          "id": "caseta",
+          "nom": "caseta d'ocells",
+          "article": "la",
+          "preu": 10,
+          "pictograma": 39265,
+          "lloc": {
+            "x": 93,
+            "y": 52,
+            "mida": 8
+          }
+        },
+        {
+          "id": "font",
+          "nom": "font",
+          "article": "la",
+          "preu": 12,
+          "pictograma": 3273,
+          "lloc": {
+            "x": 7,
+            "y": 50,
+            "mida": 8
+          }
+        },
+        {
+          "id": "espantaocells",
+          "nom": "espantaocells",
+          "article": "l'",
+          "preu": 15,
+          "pictograma": 8571,
+          "lloc": {
+            "x": 50,
+            "y": 45,
+            "mida": 8
+          }
+        }
+      ],
       "activitats": [
         {
           "id": "comptar-llavors",
@@ -325,6 +399,7 @@
         ],
         "bancals": []
       },
+      "botiga": [],
       "activitats": []
     },
     {
@@ -340,6 +415,7 @@
         ],
         "bancals": []
       },
+      "botiga": [],
       "activitats": []
     },
     {
@@ -355,6 +431,7 @@
         ],
         "bancals": []
       },
+      "botiga": [],
       "activitats": []
     }
   ]

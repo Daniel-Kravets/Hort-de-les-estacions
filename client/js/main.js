@@ -8,6 +8,7 @@ import hort from "./screens/hort.js";
 import activitats from "./screens/activitats.js";
 import activitat from "./screens/activitat.js";
 import resultats from "./screens/resultats.js";
+import botiga from "./screens/botiga.js";
 
 const nav = new Navegador(document.getElementById("app"));
 
@@ -19,6 +20,7 @@ nav
   .registrar(hort)
   .registrar(activitats)
   .registrar(activitat)
-  .registrar(resultats);
+  .registrar(resultats)
+  .registrar(botiga);
 
 nav.anar("inici");

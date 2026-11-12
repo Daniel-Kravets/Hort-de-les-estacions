@@ -29,6 +29,14 @@ export class Partida {
     return this.horts[estacio];
   }
 
+  // Compra un article de la botiga per a l'hort d'una estació. Retorna true si s'ha pogut
+  comprar(estacio, article) {
+    const hort = this.hort(estacio);
+    if (hort.teMillora(article.id) || !this.gastarLlavors(article.preu)) return false;
+    hort.afegirMillora(article.id);
+    return true;
+  }
+
   millorsEstrelles(idActivitat) {
     return this.estrelles[idActivitat] ?? 0;
   }

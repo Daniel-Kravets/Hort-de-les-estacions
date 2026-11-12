@@ -49,9 +49,18 @@ export default {
     obtenirMon(estacio).then((mon) => {
       const { preus, bancals } = mon.hort;
       const idsBancals = bancals.map((b) => b.id);
+      const idsMillores = mon.botiga.map((a) => a.id);
+
+      // Decoracions comprades a la botiga, cadascuna al seu lloc
+      mon.botiga.filter((article) => hort.teMillora(article.id)).forEach((article) => {
+        const { x, y, mida } = article.lloc;
+        camp.append(html(`
+          <img class="hort__millora" src="${urlPictograma(article.pictograma, 300)}" alt="${article.nom}"
+               style="left:${x}%; top:${y}%; width:${mida}%">`));
+      });
 
       const refrescarProgres = () => {
-        const percent = hort.percentatge(idsBancals);
+        const percent = hort.percentatge(idsBancals, idsMillores);
         camp.querySelector(".hort__ple").style.width = `${percent}%`;
         camp.classList.toggle("hort--florit", percent === 100);
       };

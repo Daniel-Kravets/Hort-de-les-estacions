@@ -634,3 +634,52 @@
 /* Dibuix de la fase dins de la carta o del forat */
 .cicle__dibuix { position: relative; width: 150px; aspect-ratio: 220 / 150; pointer-events: none; }
 .cicle__nom { font-size: 18px; font-weight: 700; margin-top: -6px; pointer-events: none; }
+
+/* Decoracions de la botiga dins de l'hort */
+.hort__millora {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 0 rgba(74, 64, 54, .12));
+  animation: aparicio 500ms var(--transicio);
+}
+
+/* ---------- BOTIGA ---------- */
+.botiga__cap { display: flex; align-items: flex-end; gap: 6px; align-self: flex-start; margin-left: 40px; }
+.botiga__cap .bafarada { margin-bottom: 50px; font-size: 30px; }
+.botiga {
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  gap: 34px 36px;
+  justify-content: center;
+}
+.article {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 26px 18px 18px;
+  text-align: left;
+}
+.article .picto { flex: none; width: 88px; padding: 6px; box-shadow: 0 0 0 4px var(--linia); }
+.article__nom { display: block; font-size: 20px; font-weight: 700; }
+.article__info { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.article__estat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px 4px 10px;
+  background: var(--mostassa-clar);
+  border-radius: var(--radi-pedra);
+  box-shadow: 0 4px 0 var(--mostassa);
+  font-size: var(--text-petit);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.article__estat .llavors__llavor { width: 14px; height: 20px; }
+.article__estat--teu { background: var(--salvia-clar); box-shadow: 0 4px 0 var(--salvia); color: var(--salvia-fosc); }
+.article--car { opacity: .6; }
+.article--comprat { background: #F4F6EC; }
+
+.dialeg__picto { width: 150px; }
