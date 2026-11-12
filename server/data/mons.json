@@ -298,7 +298,17 @@
           "id": "cicle-planta",
           "nom": "Cicle de la planta",
           "tipus": "ordenar",
-          "pictograma": 23991
+          "pictograma": 23991,
+          "contingut": {
+            "rondes": 3,
+            "cultius": [
+              "carbassa",
+              "pastanaga",
+              "col",
+              "enciam",
+              "remolatxa"
+            ]
+          }
         }
       ]
     },

@@ -9,9 +9,10 @@ import comptar from "../activities/comptar.js";
 import triar from "../activities/triar.js";
 import classificar from "../activities/classificar.js";
 import regar from "../activities/regar.js";
+import ordenar from "../activities/ordenar.js";
 
 // Minijocs disponibles, segons el "tipus" de l'activitat a mons.json
-const MINIJOCS = { comptar, triar, classificar, regar };
+const MINIJOCS = { comptar, triar, classificar, regar, ordenar };
 
 const LLAVORS_A_LA_PRIMERA = 2;
 const LLAVORS_DESPRES_DERROR = 1;
