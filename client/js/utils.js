@@ -38,10 +38,10 @@ export function capcalera(nav, titol, { alumne, llavors } = {}) {
 
 // Finestra de confirmació. botons = [{ text, classe, accio }]
 // Retorna l'element per si cal tancar-lo des de fora.
-export function dialeg({ titol, contingut = "", botons }) {
+export function dialeg({ titol, contingut = "", botons, classe = "" }) {
   const fons = html(`
     <div class="dialeg-fons">
-      <div class="dialeg" role="dialog" aria-modal="true">
+      <div class="dialeg ${classe}" role="dialog" aria-modal="true">
         <h2>${titol}</h2>
         ${contingut}
         <div class="dialeg__botons"></div>

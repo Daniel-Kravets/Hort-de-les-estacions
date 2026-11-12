@@ -1,0 +1,50 @@
+{
+  "docents": [
+    {
+      "usuari": "mestra.i3",
+      "nom": "Mestra d'I3",
+      "grups": [
+        "I3"
+      ],
+      "contrasenya": {
+        "sal": "50e0fed082acbbd5004ac95d93a19d87",
+        "hash": "e09e19e6f6e8974e81239f7c3bdef30d7c15c00e975c7bf7294093427dd7ee90131a56eebb63ecc4ec20046f52abfe6d23f429e70cda73b1d6aaee3f1ef9626d"
+      }
+    },
+    {
+      "usuari": "mestra.i4",
+      "nom": "Mestra d'I4",
+      "grups": [
+        "I4"
+      ],
+      "contrasenya": {
+        "sal": "2434a05aa7b3aa5ac8e1e0319c926d1e",
+        "hash": "ae81b770b560b8586f56a0537ce122794efc44bf14281a553c1bf2cbc7e2a94b1daa31e94666cf4a9bd8934abbe93354735a8bf3ae7dc8df7234aefbea1d39d8"
+      }
+    },
+    {
+      "usuari": "mestra.i5",
+      "nom": "Mestra d'I5",
+      "grups": [
+        "I5"
+      ],
+      "contrasenya": {
+        "sal": "2145dba98c98df684acc1b60fe606973",
+        "hash": "4c40cfbda4d2f289138acf259e27196e7f16ddc38be60604de63c5d42b0975602fc6b5c8c615805a4442f937e58ef9046fbe15f2294ae8aa73a65f56590e6452"
+      }
+    },
+    {
+      "usuari": "coordinacio",
+      "nom": "Coordinació",
+      "grups": [
+        "I3",
+        "I4",
+        "I5"
+      ],
+      "contrasenya": {
+        "sal": "9dcc24936ea21212f705492457546f68",
+        "hash": "b083d13be4fb6ed1b7426ef64f750adc3b48c07be0d92d7d571ce9890ffc4ba36a13f61e7ac5ffb470dd1d6455cf72d47f9b91f465e0f5151c11c27a724e8dce"
+      }
+    }
+  ]
+}

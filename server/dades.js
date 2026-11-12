@@ -18,3 +18,8 @@ export async function escriureJSON(nomFitxer, dades) {
   const text = JSON.stringify(dades, null, 2);
   await writeFile(ruta, text + "\n", "utf-8");
 }
+
+// Ruta completa d'un fitxer de dades (per esborrar-lo, per exemple)
+export function rutaDades(nomFitxer) {
+  return path.join(CARPETA_DADES, nomFitxer);
+}

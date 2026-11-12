@@ -683,3 +683,66 @@
 .article--comprat { background: #F4F6EC; }
 
 .dialeg__picto { width: 150px; }
+
+/* ---------- ACCÉS DOCENT ---------- */
+.acces {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: min(100%, 480px);
+  padding: 44px 40px 34px;
+  --gir: 0deg;
+}
+.acces h2 { text-align: center; }
+.camp { display: flex; flex-direction: column; gap: 8px; font-size: var(--text-petit); font-weight: 700; }
+.camp input {
+  height: 64px;
+  padding: 0 20px;
+  border: 3px solid var(--linia);
+  border-radius: 18px;
+  background: var(--fons);
+  font: inherit;
+  font-size: var(--text-base);
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--text);
+}
+.camp input[name="usuari"] { text-transform: uppercase; }
+.camp input:focus { outline: none; border-color: var(--salvia); }
+.acces__error { min-height: 1.3em; color: var(--argila-fosc); font-size: 20px; font-weight: 700; text-align: center; }
+
+/* ---------- PANELL DOCENT (per a adults: més dens) ---------- */
+.panell__cos { flex: 1; display: flex; flex-direction: column; gap: 18px; padding: 30px 20px 120px; }
+.panell__eines { display: flex; justify-content: space-between; align-items: center; }
+.panell__classes { display: flex; gap: 14px; }
+.panell__classe { min-height: 60px; padding: 0 28px; }
+.panell__classe--activa { --color: var(--salvia); --color-fosc: var(--salvia-fosc); --color-text: var(--fons-paper); }
+.panell__eines .boto--ajuda { min-height: 60px; font-size: 20px; }
+
+.panell table { width: 100%; border-collapse: separate; border-spacing: 0 8px; font-size: 17px; }
+.panell th { padding: 0 5px; font-size: 13px; color: var(--text-suau); text-align: center; }
+.panell th:first-child, .panell td:first-child { text-align: left; }
+.panell th img { width: 38px; height: 38px; object-fit: contain; display: inline-block; }
+.panell td { padding: 8px 5px; background: var(--fons-paper); text-align: center; }
+.panell td:first-child { border-radius: 16px 0 0 16px; }
+.panell td:last-child  { border-radius: 0 16px 16px 0; }
+.panell tbody tr { cursor: pointer; }
+.panell tbody tr:hover td { background: var(--salvia-clar); }
+.panell__alumne { display: flex; align-items: center; gap: 12px; padding-right: 12px; font-weight: 700; }
+.panell__hort { white-space: nowrap; }
+.panell__alumne img { width: 40px; height: 40px; object-fit: contain; }
+.panell td:first-child { min-width: 150px; }
+.panell__estrelles { color: var(--mostassa-fosc); font-size: 15px; letter-spacing: -1px; white-space: nowrap; }
+.panell__barra { display: inline-block; width: 50px; height: 12px; margin-right: 8px; background: var(--fons-fosc); border-radius: 6px; overflow: hidden; vertical-align: middle; }
+.panell__barra span { display: block; height: 100%; background: var(--salvia); }
+.fila--revisar td { background: #F6E2DA; }
+.fila--revisar td:first-child { color: var(--argila-fosc); }
+.panell__llegenda { font-size: 15px; color: var(--text-suau); }
+.panell__marca { display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #F6E2DA; vertical-align: middle; }
+
+/* Detall d'un alumne (diàleg ample) */
+.dialeg--ample { max-width: 900px; width: 90vw; }
+.panell__historial { max-height: 46vh; overflow-y: auto; width: 100%; }
+.panell__historial table { width: 100%; border-collapse: collapse; font-size: 17px; }
+.panell__historial th { font-size: 14px; color: var(--text-suau); padding: 6px; }
+.panell__historial td { padding: 8px 6px; border-top: 2px solid var(--fons-fosc); text-align: center; }
