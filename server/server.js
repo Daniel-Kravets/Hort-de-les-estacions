@@ -4,7 +4,7 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { llegirJSON } from "./dades.js";
+import { llegirJSON, escriureJSON } from "./dades.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
@@ -39,6 +39,49 @@ app.get("/api/mons/:id", async (req, res) => {
 
   if (!mon) return res.status(404).json({ error: "Aquest món no existeix" });
   res.json(mon);
+});
+
+// ---------- Partides (progrés de cada alumne) ----------
+
+// Només acceptem ids com "alumne-007": així ningú pot llegir o escriure altres fitxers
+const ID_VALID = /^alumne-\d{3}$/;
+
+function partidaBuida(idAlumne) {
+  return { idAlumne, llavors: 0, horts: {}, estrelles: {}, historial: [] };
+}
+
+// La partida d'un alumne (si encara no ha jugat mai, una de buida)
+app.get("/api/partides/:id", async (req, res) => {
+  const { id } = req.params;
+  if (!ID_VALID.test(id)) return res.status(400).json({ error: "Identificador no vàlid" });
+
+  try {
+    res.json(await llegirJSON(`partides/${id}.json`));
+  } catch (error) {
+    if (error.code === "ENOENT") return res.json(partidaBuida(id));
+    console.error(error);
+    res.status(500).json({ error: "No s'ha pogut llegir la partida" });
+  }
+});
+
+// Desa la partida d'un alumne
+app.put("/api/partides/:id", async (req, res) => {
+  const { id } = req.params;
+  if (!ID_VALID.test(id)) return res.status(400).json({ error: "Identificador no vàlid" });
+
+  const { llavors, horts, estrelles, historial } = req.body ?? {};
+  if (!Number.isInteger(llavors) || llavors < 0 || typeof horts !== "object" ||
+      typeof estrelles !== "object" || !Array.isArray(historial)) {
+    return res.status(400).json({ error: "Partida no vàlida" });
+  }
+
+  try {
+    await escriureJSON(`partides/${id}.json`, { idAlumne: id, llavors, horts, estrelles, historial });
+    res.json({ ok: true });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "No s'ha pogut desar la partida" });
+  }
 });
 
 // ---------- Fitxers estàtics: HTML, CSS, JS, fonts i imatges ----------

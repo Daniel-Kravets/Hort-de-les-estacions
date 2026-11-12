@@ -4,7 +4,7 @@ import { obtenirMon } from "../services/api.js";
 import { urlPictograma } from "../services/arasaac.js";
 import { crearCargolet, celebrar } from "../cargolet.js";
 import { parlar } from "../services/veu.js";
-import { estat } from "../estat.js";
+import { estat, desar } from "../estat.js";
 
 // "L'ESPANTAOCELLS", "LA FONT", "EL BANC"
 const ambArticle = (a) => (a.article.endsWith("'") ? `${a.article}${a.nom}` : `${a.article} ${a.nom}`).toUpperCase();
@@ -83,6 +83,7 @@ export default {
                 text: "SÍ",
                 accio: () => {
                   partida.comprar(estacio, article);
+                  desar();
                   llista.querySelectorAll(".article").forEach((t) => t.dispatchEvent(new Event("repintar")));
                   cap.querySelector(".llavors").lastChild.textContent = partida.llavors;
                   celebrar(cargolet);

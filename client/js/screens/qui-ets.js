@@ -30,8 +30,9 @@ export default {
 
         llista.querySelectorAll(".alumne").forEach((boto) => {
           const alumne = grup.alumnes.find((a) => a.id === boto.dataset.id);
-          boto.addEventListener("click", () => {
-            començarPartida(classe, alumne);
+          boto.addEventListener("click", async () => {
+            boto.disabled = true;
+            await començarPartida(classe, alumne);   // carrega el seu progrés guardat
             nav.anar("mapa");
           });
         });

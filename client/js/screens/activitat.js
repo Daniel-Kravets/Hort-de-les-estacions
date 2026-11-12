@@ -4,7 +4,7 @@
 import { html, icones, dialeg, imatgeAlumne } from "../utils.js";
 import { crearCargolet, celebrar } from "../cargolet.js";
 import { parlar, callar } from "../services/veu.js";
-import { estat } from "../estat.js";
+import { estat, desar } from "../estat.js";
 import comptar from "../activities/comptar.js";
 import triar from "../activities/triar.js";
 import classificar from "../activities/classificar.js";
@@ -64,6 +64,7 @@ export default {
     }
 
     const preguntes = minijoc.generarPreguntes(classe, activitat);
+    const inici = Date.now();
     let actual = 0;
     let errorsPregunta = 0;
     let errorsTotals = 0;
@@ -123,6 +124,17 @@ export default {
     function acabar() {
       const estrelles = errorsTotals === 0 ? 3 : errorsTotals <= 2 ? 2 : 1;
       partida.desarEstrelles(activitat.id, estrelles);
+      partida.registrarSessio({
+        activitat: activitat.id,
+        estacio,
+        data: new Date().toISOString(),
+        encerts: preguntes.length,
+        errors: errorsTotals,
+        estrelles,
+        llavors: llavorsGuanyades,
+        minuts: Math.max(1, Math.round((Date.now() - inici) / 60000)),
+      });
+      desar();
       nav.anar("resultats", { estacio, activitat, estrelles, llavorsGuanyades, total: preguntes.length });
     }
 
@@ -135,7 +147,7 @@ export default {
         contingut: `<p>LES LLAVORS QUE HAS GUANYAT ES GUARDEN</p>`,
         botons: [
           { text: "NO, SEGUIM", classe: "boto--suau" },
-          { text: "SÍ, SORTIR", classe: "boto--sortir", accio: () => { callar(); nav.tornarA("hort"); } },
+          { text: "SÍ, SORTIR", classe: "boto--sortir", accio: () => { callar(); desar(); nav.tornarA("hort"); } },
         ],
       });
     });

@@ -1,7 +1,7 @@
 // Lectura i escriptura dels fitxers JSON de server/data/
 // Tota la "base de dades" del joc són fitxers JSON.
 
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -13,6 +13,8 @@ export async function llegirJSON(nomFitxer) {
 }
 
 export async function escriureJSON(nomFitxer, dades) {
+  const ruta = path.join(CARPETA_DADES, nomFitxer);
+  await mkdir(path.dirname(ruta), { recursive: true });   // per si la carpeta encara no existeix
   const text = JSON.stringify(dades, null, 2);
-  await writeFile(path.join(CARPETA_DADES, nomFitxer), text + "\n", "utf-8");
+  await writeFile(ruta, text + "\n", "utf-8");
 }

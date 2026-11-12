@@ -1,6 +1,6 @@
-// Estat de la sessió: qui està jugant ara mateix.
-// (A la fase 7 la partida es carregarà i es desarà al servidor en JSON.)
+// Estat de la sessió: qui està jugant ara mateix i la seva partida.
 import { Partida } from "./models/Partida.js";
+import { obtenirPartida, desarPartida } from "./services/api.js";
 
 export const estat = {
   classe: null,
@@ -8,11 +8,28 @@ export const estat = {
   partida: null,
 };
 
-// Per a la demo: http://localhost:3000/?llavors=50 comença amb 50 llavors
+// Per a la demo: http://localhost:3000/?llavors=45 suma 45 llavors a l'alumne que entri
 const llavorsDemo = Number(new URLSearchParams(location.search).get("llavors")) || 0;
 
-export function començarPartida(classe, alumne) {
+// Carrega la partida guardada de l'alumne (o en crea una de nova)
+export async function començarPartida(classe, alumne) {
+  const dades = await obtenirPartida(alumne.id);
   estat.classe = classe;
   estat.alumne = alumne;
-  estat.partida = new Partida({ idAlumne: alumne.id, llavors: llavorsDemo });
+  estat.partida = new Partida(dades);
+
+  if (llavorsDemo > 0) {
+    estat.partida.afegirLlavors(llavorsDemo);
+    await desar();
+  }
+}
+
+// Desa la partida actual. Si falla, el joc continua i ho avisem a la consola.
+export async function desar() {
+  if (!estat.partida) return;
+  try {
+    await desarPartida(estat.partida);
+  } catch (error) {
+    console.error("No s'ha pogut desar la partida", error);
+  }
 }

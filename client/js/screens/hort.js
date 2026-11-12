@@ -4,7 +4,7 @@ import { obtenirMon } from "../services/api.js";
 import { urlPictograma } from "../services/arasaac.js";
 import { dibuixPlantes } from "../plantes.js";
 import { crearCargolet, celebrar } from "../cargolet.js";
-import { estat } from "../estat.js";
+import { estat, desar } from "../estat.js";
 
 // On va cada bancal dins de l'hort (centre, en %)
 const POSICIONS = [
@@ -115,6 +115,7 @@ export default {
                 accio: () => {
                   partida.gastarLlavors(preu);
                   hort.creixer(bancal.id);
+                  desar();
                   pintar();
                   element.classList.add("bancal--creix");
                   setTimeout(() => element.classList.remove("bancal--creix"), 700);

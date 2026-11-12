@@ -2,10 +2,11 @@
 import { Hort } from "./Hort.js";
 
 export class Partida {
-  constructor({ idAlumne, llavors = 0, horts = {}, estrelles = {} }) {
+  constructor({ idAlumne, llavors = 0, horts = {}, estrelles = {}, historial = [] }) {
     this.idAlumne = idAlumne;
     this.llavors = llavors;
     this.estrelles = estrelles;   // millor resultat de cada activitat: { "comptar-llavors": 2 }
+    this.historial = historial;   // resum de cada activitat jugada (per al docent)
     this.horts = {};              // un Hort per estació
     for (const [estacio, h] of Object.entries(horts)) {
       this.horts[estacio] = new Hort(estacio, h.bancals, h.millores);
@@ -43,5 +44,25 @@ export class Partida {
 
   desarEstrelles(idActivitat, estrelles) {
     this.estrelles[idActivitat] = Math.max(this.millorsEstrelles(idActivitat), estrelles);
+  }
+
+  // Apunta una activitat acabada: { activitat, estacio, data, encerts, errors, estrelles, llavors, minuts }
+  registrarSessio(resum) {
+    this.historial.push(resum);
+  }
+
+  // El que es desa al fitxer JSON
+  toJSON() {
+    const horts = {};
+    for (const [estacio, hort] of Object.entries(this.horts)) {
+      horts[estacio] = { bancals: hort.bancals, millores: hort.millores };
+    }
+    return {
+      idAlumne: this.idAlumne,
+      llavors: this.llavors,
+      horts,
+      estrelles: this.estrelles,
+      historial: this.historial,
+    };
   }
 }
