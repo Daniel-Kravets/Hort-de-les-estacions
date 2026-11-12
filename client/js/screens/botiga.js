@@ -27,7 +27,7 @@ export default {
         </div>
       </section>
     `);
-    const cap = capcalera(nav, "BOTIGA", { alumne, llavors: partida.llavors });
+    const cap = capcalera(nav, "BOTIGA", { alumne, llavors: partida.llavors, ajuda: "botiga" });
     pantalla.prepend(cap);
 
     const cargolet = crearCargolet(120);

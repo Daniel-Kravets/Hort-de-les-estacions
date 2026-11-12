@@ -36,7 +36,7 @@ export default {
         </div>
       </section>
     `);
-    const cap = capcalera(nav, `HORT DE ${estacio.toUpperCase()}`, { alumne, llavors: partida.llavors });
+    const cap = capcalera(nav, `HORT DE ${estacio.toUpperCase()}`, { alumne, llavors: partida.llavors, ajuda: "hort" });
     pantalla.prepend(cap);
 
     const camp = pantalla.querySelector(".hort");

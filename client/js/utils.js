@@ -21,7 +21,7 @@ export const icones = {
 };
 
 // Capçalera comuna: TORNAR, títol, (llavors i animal de l'alumne) i AJUDA
-export function capcalera(nav, titol, { alumne, llavors } = {}) {
+export function capcalera(nav, titol, { alumne, llavors, ajuda = "general" } = {}) {
   const element = html(`
     <header class="capcalera">
       <button class="boto boto--suau" data-accio="tornar">${icones.enrere} TORNAR</button>
@@ -32,7 +32,10 @@ export function capcalera(nav, titol, { alumne, llavors } = {}) {
     </header>
   `);
   element.querySelector('[data-accio="tornar"]').addEventListener("click", () => nav.tornar());
-  element.querySelector('[data-accio="ajuda"]').addEventListener("click", () => nav.anar("ajuda"));
+  element.querySelector('[data-accio="ajuda"]').addEventListener("click", async () => {
+    const { mostrarAjuda } = await import("./ajuda.js");   // import dinàmic: ajuda.js també fa servir utils.js
+    mostrarAjuda(ajuda);
+  });
   return element;
 }
 

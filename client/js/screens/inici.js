@@ -1,6 +1,7 @@
 // Pantalla 1 · INICI
 import { html } from "../utils.js";
 import { crearCargolet, celebrar } from "../cargolet.js";
+import { mostrarAjuda } from "../ajuda.js";
 
 export default {
   id: "inici",
@@ -16,6 +17,7 @@ export default {
           <button class="boto boto--gegant" data-accio="jugar">JUGAR</button>
         </div>
         <button class="boto boto--suau inici__docent" data-accio="docent">ACCÉS DOCENT</button>
+        <button class="boto boto--ajuda boto--rodo inici__ajuda" aria-label="Ajuda" data-accio="ajuda">?</button>
       </section>
     `);
 
@@ -26,6 +28,7 @@ export default {
 
     pantalla.querySelector('[data-accio="jugar"]').addEventListener("click", () => nav.anar("triar-classe"));
     pantalla.querySelector('[data-accio="docent"]').addEventListener("click", () => nav.anar("acces-docent"));
+    pantalla.querySelector('[data-accio="ajuda"]').addEventListener("click", () => mostrarAjuda("general"));
     return pantalla;
   },
 };

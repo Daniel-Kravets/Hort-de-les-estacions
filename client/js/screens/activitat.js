@@ -4,6 +4,7 @@
 import { html, icones, dialeg, imatgeAlumne } from "../utils.js";
 import { crearCargolet, celebrar } from "../cargolet.js";
 import { parlar, callar } from "../services/veu.js";
+import { mostrarAjuda } from "../ajuda.js";
 import { estat, desar } from "../estat.js";
 import comptar from "../activities/comptar.js";
 import triar from "../activities/triar.js";
@@ -140,7 +141,7 @@ export default {
 
     // Botons de la capçalera i de la bafarada
     pantalla.querySelector('[data-accio="escoltar"]').addEventListener("click", () => parlar(textBafarada.textContent));
-    pantalla.querySelector('[data-accio="ajuda"]').addEventListener("click", () => nav.anar("ajuda"));
+    pantalla.querySelector('[data-accio="ajuda"]').addEventListener("click", () => mostrarAjuda(activitat.tipus));
     pantalla.querySelector('[data-accio="sortir"]').addEventListener("click", () => {
       dialeg({
         titol: "VOLS SORTIR?",

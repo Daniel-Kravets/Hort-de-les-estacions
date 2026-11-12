@@ -18,7 +18,7 @@ export default {
         </div>
       </section>
     `);
-    pantalla.prepend(capcalera(nav, "", { alumne, llavors: partida.llavors }));
+    pantalla.prepend(capcalera(nav, "", { alumne, llavors: partida.llavors, ajuda: "activitats" }));
 
     const llista = pantalla.querySelector(".activitats");
 
