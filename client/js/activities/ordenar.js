@@ -1,6 +1,7 @@
 // Minijoc · CICLE DE LA PLANTA
 // Quatre forats: LLAVOR → BROT → PLANTA → FRUIT. La llavor ja hi és;
 // l'infant toca (o arrossega) la carta que ve després.
+import { escala } from "../escala.js";
 import { dibuixPlantes } from "../plantes.js";
 
 const FASES = ["LLAVOR", "BROT", "PLANTA", "FRUIT"];
@@ -88,7 +89,7 @@ export default {
         if (Math.hypot(dx, dy) > 12) mogut = true;
         if (mogut) {
           cartaEl.classList.add("cicle__carta--agafada");
-          cartaEl.style.translate = `${dx}px ${dy}px`;
+          cartaEl.style.translate = `${dx / escala()}px ${dy / escala()}px`;
         }
       });
       cartaEl.addEventListener("pointerup", (e) => {

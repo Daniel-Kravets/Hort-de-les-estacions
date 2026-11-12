@@ -142,7 +142,8 @@ export default {
     // Botons de la capçalera i de la bafarada
     pantalla.querySelector('[data-accio="escoltar"]').addEventListener("click", () => parlar(textBafarada.textContent));
     pantalla.querySelector('[data-accio="ajuda"]').addEventListener("click", () => mostrarAjuda(activitat.tipus));
-    pantalla.querySelector('[data-accio="sortir"]').addEventListener("click", () => {
+    const preguntarSortir = () => {
+      if (document.querySelector(".dialeg-fons")) return;   // ja està preguntant
       dialeg({
         titol: "VOLS SORTIR?",
         contingut: `<p>LES LLAVORS QUE HAS GUANYAT ES GUARDEN</p>`,
@@ -151,7 +152,9 @@ export default {
           { text: "SÍ, SORTIR", classe: "boto--sortir", accio: () => { callar(); desar(); nav.tornarA("hort"); } },
         ],
       });
-    });
+    };
+    pantalla.querySelector('[data-accio="sortir"]').addEventListener("click", preguntarSortir);
+    nav.protegir(preguntarSortir);   // l'"enrere" del navegador també pregunta
 
     // Comencem quan la pantalla ja ha entrat
     setTimeout(mostrarPregunta, 450);

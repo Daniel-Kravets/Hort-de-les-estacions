@@ -1,6 +1,7 @@
 // Minijoc · CLASSIFICAR FRUITES PER COLOR
 // Surt una fruita i l'infant la porta a la cistella del seu color:
 // la pot arrossegar amb el dit o tocar directament la cistella.
+import { escala } from "../escala.js";
 import { urlPictograma } from "../services/arasaac.js";
 
 const NOM_COLOR = { vermell: "VERMELLA", groc: "GROGA", verd: "VERDA" };   // "la cistella VERMELLA"
@@ -74,7 +75,7 @@ export default {
     });
     peca.addEventListener("pointermove", (e) => {
       if (!inici) return;
-      peca.style.translate = `${e.clientX - inici.x}px ${e.clientY - inici.y}px`;
+      peca.style.translate = `${(e.clientX - inici.x) / escala()}px ${(e.clientY - inici.y) / escala()}px`;
       // Il·lumina la cistella que hi ha a sota
       const sota = cistellaSota(e.clientX, e.clientY);
       zona.querySelectorAll(".cistella").forEach((c) => c.classList.toggle("cistella--sobre", c === sota));
@@ -106,8 +107,8 @@ function volarFins(peca, cistellaEl) {
   const a = peca.getBoundingClientRect();
   const b = cistellaEl.getBoundingClientRect();
   const actual = (peca.style.translate || "0px 0px").split(" ").map(parseFloat);
-  const dx = (actual[0] || 0) + (b.left + b.width / 2) - (a.left + a.width / 2);
-  const dy = (actual[1] || 0) + (b.top + b.height / 3) - (a.top + a.height / 2);
+  const dx = (actual[0] || 0) + ((b.left + b.width / 2) - (a.left + a.width / 2)) / escala();
+  const dy = (actual[1] || 0) + ((b.top + b.height / 3) - (a.top + a.height / 2)) / escala();
   peca.style.transition = "translate 450ms ease-in, scale 450ms ease-in";
   peca.style.translate = `${dx}px ${dy}px`;
   peca.style.scale = "0.45";

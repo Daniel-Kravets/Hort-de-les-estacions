@@ -217,6 +217,7 @@ button.targeta:hover { transform: rotate(0deg) scale(1.04); }
 /* ---------- DIÀLEG (confirmar sortir, comprar...) ---------- */
 .dialeg-fons {
   position: fixed; inset: 0;
+  zoom: var(--escala, 1);
   display: grid; place-items: center;
   background: rgba(74, 64, 54, .45);
   z-index: 10;

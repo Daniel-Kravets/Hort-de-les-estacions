@@ -8,7 +8,7 @@ export default {
   crear(nav) {
     const pantalla = html(`
       <section>
-        <div class="pantalla__cos">
+        <div class="pantalla__cos pantalla__cos--compacte">
           <form class="targeta acces" autocomplete="on">
             <h2>ACCÉS DOCENT</h2>
             <label class="camp">

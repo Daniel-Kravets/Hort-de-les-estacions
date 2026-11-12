@@ -1,4 +1,5 @@
 // Punt d'entrada de l'aplicació
+import "./escala.js";
 import { Navegador } from "./navegador.js";
 import inici from "./screens/inici.js";
 import triarClasse from "./screens/triar-classe.js";
